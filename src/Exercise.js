@@ -1,11 +1,11 @@
 function mostrarVariables() {
   if (true) {
-    var fruta = "Manzana";
-    let bebida = "Jugo";
+    var fruit = "Apple";
+    let juice = "Orange Juice";
   }
 
-  console.log(fruta); // ¿Qué muestra?
-  console.log(bebida); // ¿Qué pasa aquí?
+  console.log(fruit);
+  console.log(juice);
 }
 
 mostrarVariables();
