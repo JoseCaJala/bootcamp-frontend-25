@@ -1,3 +1,8 @@
+//Example of hoisting
+console.log(x); // undefined
+var x = 5;
+console.log(x);
+
 //Example of closure
 function makeFunc () {
 
