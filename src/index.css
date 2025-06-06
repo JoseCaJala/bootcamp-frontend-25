@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.challenge-title {
+    background-color: #3a2d7a;
+    color: #00ffcc;
+    text-align: center;
+    padding: 20px;
+    margin: 0 0 20px 0;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+.container {
+    width: 500px;
+    height: 700px;
+    background-color: #3a2d7a;
+    border: 4px solid #00ffcc;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.rect-1 {
+    width: 100%;
+    height: 50px;
+    border: 3px solid #00ffcc;
+    margin: 0 auto 15px auto;
+    background-color: transparent;
+}
+
+.rect-2 {
+    width: 90%;             
+    height: 40px;           
+    border: 3px solid #00ffcc;
+    margin: 0 auto 20px auto;
+    background-color: transparent;
+}
+
+.rect-large {
+    width: 90%;           
+    height: 280px;         
+    border: 3px solid #ff0080;
+    margin: 0 auto 20px auto; 
+    background-color: transparent;
+}
+
+.bottom-container {
+    width: 95%;             
+    height: 180px;         
+    border: 3px solid #00ffcc;  
+    padding: 10px;          
+    box-sizing: border-box; 
+    margin: 0 auto;         
+    background-color: transparent;
+}
+
+.rect-3 {
+    width: 100%;            
+    height: 85px;           
+    border: 3px solid #ff0080;  
+    margin-bottom: 10px;   
+    margin-right: 0;
+    background-color: transparent;
+}
+
+.rect-4 {
+    width: 100%;            
+    height: 45px;           
+    border: 3px solid #ff0080;  
+    background-color: transparent;
+    margin-right: 0;
+}
