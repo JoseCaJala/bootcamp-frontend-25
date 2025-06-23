@@ -12,16 +12,14 @@
  * Submit your code once it is complete.
  */
 
-import { useContext } from 'react';
-import { LanguageContext } from '../src/Context';
+import MainSection from './components/MainSection';
+import { LanguageProvider } from './Context';
 
-export default function ToggleButton() {
-  const { toggleLanguage } = useContext(LanguageContext);
-
+export default function App() {
   return (
-    <button id="changeFavorite" onClick={toggleLanguage}>
-      toggle language
-    </button>
+    <LanguageProvider>
+      <MainSection />
+    </LanguageProvider>
   );
 }
 

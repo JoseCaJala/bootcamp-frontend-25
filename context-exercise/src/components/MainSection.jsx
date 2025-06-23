@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { LanguageContext } from '../context/LanguageContext';
+import { LanguageContext } from '../Context';
 import ToggleButton from './ToggleButton';
 
 export default function MainSection() {
