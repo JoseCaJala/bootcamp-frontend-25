@@ -1,0 +1,37 @@
+.first-right {
+    grid-area: first-right;
+}
+
+.right-side {
+    grid-area: right;
+}
+
+.body {
+    grid-area: body;
+}
+
+.left-side {
+    grid-area: left;
+}
+.last-left {
+    grid-area: last-left;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 40px 50px auto 50px 40px;
+    grid-template-rows: 25% 100px auto;
+    grid-template-areas: 
+        ". right . left ."
+        "first-right right body left last-left"
+        "first-right right body left last-left"
+        "first-right right body left last-left"
+        "first-right right body left last-left"
+        "first-right right body left last-left"
+        "first-right right body left last-left"
+        "first-right right body left last-left"
+        "first-right right body left last-left"
+        "first-right right body left last-left"
+        "first-right right body left last-left"
+        "first-right right body left last-left"
+}
