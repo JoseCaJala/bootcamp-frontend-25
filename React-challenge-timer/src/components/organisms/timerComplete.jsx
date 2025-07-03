@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { TimerSection } from "../molecules/timerSection";
+import './organisms.css'
 
 const Timer = () => {
     const [seconds, setSeconds] = useState(0);
@@ -36,6 +37,8 @@ const Timer = () => {
 
     const handleReset = () => {
         setIsRunning(false);
+        setSeconds(0);
+        setMinutes(0);
     };
 
     return (

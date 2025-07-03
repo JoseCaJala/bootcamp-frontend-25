@@ -1,5 +1,6 @@
 import { Text } from "../atoms/text";
 import { Button } from "../atoms/button";
+import './molecules.css'
 
 export const TimerSection = ({ minutes, seconds, onStart, onStop, onReset}) => {
     const formatTime = (time) => time.toString().padStart(2, '0');
