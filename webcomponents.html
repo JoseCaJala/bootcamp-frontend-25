@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge</title>
+</head>
+<body>
+    <information-card
+        company-name="Jalasoft"
+        employee-name="Hirotaka Nifuji"
+        position="Developer"
+        avatar="assets/Foto 4 x 4.jpg">
+    </information-card>
+
+    <script>
+        class InformationCard extends HTMLElement {
+            constructor() {
+                super();
+
+                this.attachShadow({ mode: 'open' });
+
+                this.render();
+            }
+
+            static get observedAttributes() {
+                return ['company-name', 'employee-name', 'position', 'avatar'];
+            }
+
+            getAttributeValue(name, defaultValue = '') {
+                return this.getAttribute(name) || defaultValue;
+            }
+
+            render() {
+                const companyName = this.getAttributeValue('company-name', 'Company');
+                const employeeName = this.getAttributeValue('employee-name', 'Employee Name');
+                const position = this.getAttributeValue('position', 'Position');
+                const avatar = this.getAttributeValue('avatar', 'Avatar');
+
+                this.shadowRoot.innerHTML = `
+                    <style>
+                        :host {
+                            display: block;
+                            width: 250px;
+                            border-radius: 12px;
+                            overflow: hidden;
+                            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+                            background: white;
+                        }
+
+                        .company-header {       
+                            padding: 5%;                     
+                            text-align: center;
+                            border-bottom: 2px solid #dee2e6;
+                        }
+
+                        .company-name {
+                            font-size: 18px;
+                            font-weight: bold;
+                            color: #FF0000;
+                            margin: 0;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                        }
+
+                        .employee-section {
+                            background: #2c3e50;
+                            padding: 25px 20px 20px;
+                            text-align: center;
+                            position: relative;
+                        }
+
+                        .avatar {
+                            width: 70%;
+                            height: 70%;
+                            border-radius: 10%;
+                            object-fit: cover;
+                            border: 4px solid #ffffff;
+                            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                            margin-bottom: 15px;
+                            display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+
+                        .employee-name {
+                            padding-top: 15px;
+                            color: white;
+                            font-size: 30px;
+                            font-weight: 600;
+                            margin: 0;
+                            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); 
+                        }
+
+                        .position-section{
+                            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+                            padding: 12px 20px;
+                            text-align: center;
+                        }
+
+                        .position {
+                            color: white;
+                            font-size: 14px;
+                            font-weight: bold;
+                            margin: 0;
+                            text-transform: uppercase;
+                            letter-spacing: 0.5px;
+                            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+                        }
+                    </style>
+
+                    <div class="card-container">
+                         <div class="company-header">
+                            <h2 class="company-name">${companyName}</h2>
+                        </div>
+                        
+                        <div class="employee-section">
+                            <img class="avatar" src="${avatar}" alt="${employeeName}" />
+                            <h3 class="employee-name">${employeeName}</h3>
+                        </div>
+                        
+                        <div class="position-section">
+                            <p class="position">${position}</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            getInformationData() {
+                return {
+                    companyName: this.getAttribute('company-name'),
+                    employeeName: this.getAttribute('employee-name'),
+                    position: this.getAttribute('position'),
+                    avatar: this.getAttribute('avatar')
+                };
+            }
+        }
+
+        customElements.define('information-card', InformationCard);
+    </script>
+</body>
+</html>
