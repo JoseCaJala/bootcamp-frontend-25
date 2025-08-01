@@ -21,6 +21,15 @@ import { getProducts } from './dataService';
 //  - The total should reflect any discount that has been applied
 //  - All dollar amounts should be displayed to 2 decimal places
 
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  availableCount: number;
+  orderedQuantity?: number;
+  total?: number;
+};
+
 
 const Product = ({ id, name, availableCount, price, orderedQuantity, total, handleAddProduct, handleRestProduct }) => {
   return (
@@ -40,21 +49,19 @@ const Product = ({ id, name, availableCount, price, orderedQuantity, total, hand
 }
 
 const Checkout = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [discount, setDiscount] = useState(0);
 
   useEffect(() => {
     getProducts().then(data => {
-      setProducts(data);
-      const initialQuantity = {};
-      data.forEach(product => {
-        initialQuantity[product.id] = 0;
-      })
-    
-    }
-    );
-      setLoading(false);
+      const product = data.map(p => ({
+        ...p,
+        orderedQuantity: 0,
+        total: 0
+      }))
+      setProducts(product);
+      setLoading(false);      
     });
   }, []);
 
@@ -63,14 +70,17 @@ const Checkout = () => {
       prevProducts.map(p => p.id === productId
         ? {
           ...p,
-          orderedQuantity: p.orderedQuanteity
+          orderedQuantity: p.orderedQuantity + 1,
+          total: (p.price * (p.orderedQuantity + 1))
         }
+        : p
       )
     )
   }
 
-  const handleRestPrice = () => {
-
+  const handleRestPrice = (productId) => {
+    setProducts(prevProducts => prevProducts.map(p =>
+    ))
   }
 
   const handleDiscount = () => {
